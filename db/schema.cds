@@ -7,10 +7,11 @@ using {
     sap.common.Currencies,
     sap.common.Countries,
 
+
 } from '@sap/cds/common';
 
 entity Sales : cuid, managed {
-
+    cod_saleid   : String(12);
     email        : String(30);
     firstname    : String(30);
     lastname     : String(30);
@@ -19,6 +20,10 @@ entity Sales : cuid, managed {
     deliverydate : cds.Date;
     statu        : Association to Status; //statu --- statu_code
     imageurl     : String(30);
+    image         : LargeBinary @Core.MediaType: imageType @UI.IsImage;
+    imageType     : String      @Core.IsMediaType;
+    toSaleItems : Composition of many SaleItems
+                        on toSaleItems.saleid = $self;
 
 };
 
@@ -31,11 +36,14 @@ entity SaleItems : cuid {
     discontinueddate : cds.Date;
     price            : Decimal(12, 2);
     currency         : Association to Currencies; //currency --- currency_code
-    height           : Decimal(15, 3);
-    width            : Decimal(15, 3);
-    depth            : Decimal(12, 2);
+    height           : Decimal(6, 2);
+    width            : Decimal(6, 2);
+    depth            : Decimal(6, 2);
     quantity         : Decimal(16, 2);
-    unitofmeasure    : String(4);
+    //unitofmeasure    : String(4);
+    unitofmeasure :   Association to Measurements; //unitofmeasure --- unitofmeasure_code
+    unitVolume :  Association to Measurements; //unitofmeasure --- unitVolume_code
+   
 
 }
 
@@ -48,4 +56,12 @@ entity Status : CodeList {
             LowAvailability = 'Low Availabilit';
         };
         criticality : Integer;
+};
+
+entity Measurements : CodeList {
+    key code        : String(12) enum {
+            BAG = 'Bag';
+            BOT = 'Bottle';
+            BU = 'Bushel';
+        };
 };

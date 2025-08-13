@@ -1,0 +1,21 @@
+code,symbol,minorUnit,name,descr
+USD,$,2,Dólar estadounidense,Moneda oficial de Estados Unidos
+MXN,$,2,Peso mexicano,Moneda oficial de México
+BRL,R$,2,Real brasileño,Moneda oficial de Brasil
+ARS,$,2,Peso argentino,Moneda oficial de Argentina
+COP,$,2,Peso colombiano,Moneda oficial de Colombia
+PEN,S/.,2,Sol peruano,Moneda oficial de Perú
+CLP,$,0,Peso chileno,Moneda oficial de Chile
+EUR,€,2,Euro,Moneda oficial de la Eurozona
+CAD,$,2,Dólar canadiense,Moneda oficial de Canadá
+GBP,£,2,Libra esterlina,Moneda oficial del Reino Unido
+JPY,¥,0,Yen japonés,Moneda oficial de Japón
+CNY,¥,2,Yuan chino,Moneda oficial de China
+INR,₹,2,Rupia india,Moneda oficial de la India
+AUD,$,2,Dólar australiano,Moneda oficial de Australia
+RUB,₽,2,Rublo ruso,Moneda oficial de Rusia
+CHF,Fr,2,Franco suizo,Moneda oficial de Suiza
+KRW,₩,0,Won surcoreano,Moneda oficial de Corea del Sur
+ZAR,R,2,Rand sudafricano,Moneda oficial de Sudáfrica
+TRY,₺,2,Lira turca,Moneda oficial de Turquía
+SEK,kr,2,Corona sueca,Moneda oficial de Suecia

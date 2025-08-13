@@ -1,0 +1,4 @@
+code,criticality,name,descr
+InStock,1,En stock,Producto disponible
+OutOfStock,3,Sin stock,Producto agotado
+LowAvailability,2,Baja disponibilidad,Quedan pocas unidades
