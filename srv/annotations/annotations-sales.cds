@@ -8,20 +8,20 @@ annotate service.Sales with @odata.draft.enabled;
 
 annotate service.Sales with {
 
-    cod_saleid   @title: 'Sale Number'  @Common.FieldControl: #ReadOnly;
-    email        @title: 'Email';
-    firstname    @title: 'First Name';
-    lastname     @title: 'Last Name';
-    createdAt    @title: 'created At';
-    createdBy    @title: 'created By';
-    modifiedAt   @title: 'modified At';
-    modifiedBy   @title: 'modified By';
-    country      @title: 'Country';
-    createon     @title: 'Create on' @Common.FieldControl: #ReadOnly;
-    deliverydate @title: 'Delivery Date' @Common.FieldControl: #ReadOnly;
-    statu        @title: 'Status';
-    imageurl     @title: 'Image';
-    image        @title: 'Image';
+    cod_saleid    @title: 'Sale Number'    @Common.FieldControl: #ReadOnly;
+    email         @title: 'Email'          @Common.FieldControl: #Mandatory;
+    firstname     @title: 'First Name';
+    lastname      @title: 'Last Name';
+    createdAt     @title: 'created At';
+    createdBy     @title: 'created By';
+    modifiedAt    @title: 'modified At';
+    modifiedBy    @title: 'modified By';
+    country       @title: 'Country';
+    createon      @title: 'Create on'      @Common.FieldControl: #ReadOnly;
+    deliverydate  @title: 'Delivery Date';
+    statu         @title: 'Status';
+    imageurl      @title: 'Image';
+    image         @title: 'Image';
 
 };
 
@@ -56,8 +56,17 @@ annotate service.Sales with @(
             Value: cod_saleid
         },
         Description   : {
-            $Type: 'UI.DataField',
-            Value: email
+            $Type                  : 'UI.DataField',
+            Value                  : email,
+            ![@Common.FieldControl]: {$edmJson: {$If: [
+                {$Eq: [
+                    {$Path: 'IsActiveEntity'},
+                    false
+                ]},
+                7,
+                1
+
+            ]}}
         }
     },
 
